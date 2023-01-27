@@ -1,5 +1,5 @@
 # from: https://github.com/marketplace/actions/upstream-sync#sample-workflow
-name: 'Sync tgauth/winget-pkgs with Microsoft/winget-pkgs'
+name: 'Upstream Sync for tgauth/Winget-Pkgs'
 
 on:
   schedule:
@@ -38,10 +38,8 @@ jobs:
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_sync_branch: master
         upstream_sync_repo: microsoft/winget-pkgs
-        # upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
-
         # Set test_mode true to run tests instead of the true action!!
-        test_mode: true
+        test_mode: false
       
     # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
