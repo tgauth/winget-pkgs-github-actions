@@ -1,5 +1,5 @@
 # from: https://github.com/marketplace/actions/upstream-sync#sample-workflow
-name: 'Upstream Sync'
+name: 'Sync tgauth/winget-pkgs with Microsoft/winget-pkgs'
 
 on:
   schedule:
@@ -19,11 +19,13 @@ jobs:
     - name: Checkout target repo
       uses: actions/checkout@v2
       with:
+        repository: tgauth/winget-pkgs
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
         ref: master
         # REQUIRED if your upstream repo is private (see wiki)
         # persist-credentials: false
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # REQUIRED step
     # Step 2: run the sync action
